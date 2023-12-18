@@ -3,13 +3,12 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class createCard {
-    static JPanel cardPanel;
+    JPanel cardPanel;
     JLabel nameLabel, balanceLabel, photoLabel;
     ImageIcon photo;
     public createCard(String userName, String balance, String photoPath){
         cardPanel = new JPanel();
         cardPanel.setLayout(new BorderLayout());
-
         nameLabel = new JLabel(userName);
         balanceLabel = new JLabel("Balance" + balance);
         photo = new ImageIcon(photoPath);

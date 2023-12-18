@@ -13,11 +13,11 @@ public class homePage {
         homeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homeWindow.getContentPane().setBackground(Color.white);
         homeWindow.setLayout(new GridLayout(3, 1));
-        homeWindow.setVisible(true);
         card = new createCard("Yusuf", "10_000", "res/logo_UPJ.png");
         card2 = new createCard("Muhlis","5_000","res/logo_UPJ.png");
         homeWindow.add(card.cardPanel);
         homeWindow.add(card2.cardPanel);
+        homeWindow.setVisible(true);
 //        homeWindow.add(createCard.cardPanel);
 //        homeWindow.add(createCard.cardPanel);
 
