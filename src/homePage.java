@@ -1,36 +1,35 @@
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class homePage {
 
     JFrame homeWindow;
     JButton basketButton, userButton, discoverButton;
-    JPanel buttonPanel;
-    foodCard card, card2, card3;
-
+    JPanel playerCard, foodCard1, foodCard2, foodCard3;
+    userCard card;
+    foodCard card2, card3;
     public homePage(){
+        //setting home page frame
         homeWindow = new JFrame();
         homeWindow.setSize(400, 720);
-        homeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        homeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homeWindow.getContentPane().setBackground(Color.white);
-        homeWindow.setLayout(new GridLayout(4, 0));
-        card = new foodCard("Yusuf", "10_000", "res/logo_UPJ.png");
-        card2 = new foodCard("Muhlis","5_000","res/logo_UPJ.png");
-        card3 = new foodCard("Dimas","2_000","res/logo_UPJ.png");
+        homeWindow.setLayout(new GridLayout(3, 1));
+
+        //instatiate card object
+        card = new userCard("Yusuf", "10_000", "res/logo_UPJ.png");
+        card2 = new foodCard("Lo Ciento","20_000","res/logo_UPJ.png");
+        card3 = new foodCard("Ragusa","30_000","res/logo_UPJ.png");
+
+        //adding card to home page
         homeWindow.add(card.cardPanel);
         homeWindow.add(card2.cardPanel);
         homeWindow.add(card3.cardPanel);
-        buttonPanel = new JPanel();
-        Dimension buttonPanelSize = new Dimension(400, 10); // Sesuaikan dengan preferensi Anda
-        buttonPanel.setPreferredSize(buttonPanelSize);
-        buttonPanel.setBackground(Color.CYAN);
-        buttonPanel.setLayout(new FlowLayout());
-        buttonPanel.add(basketButton = new JButton("haha"));
-        buttonPanel.add(userButton = new JButton("haha"));
-        buttonPanel.add(discoverButton = new JButton("haha"));
-        homeWindow.add(buttonPanel);
         homeWindow.setVisible(true);
+//        homeWindow.add(createCard.cardPanel);
+//        homeWindow.add(createCard.cardPanel);
 
     }
 

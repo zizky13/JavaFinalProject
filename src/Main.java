@@ -2,6 +2,8 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        homePage login = new homePage();
+//        loginPage login = new loginPage();
+//        homePage tampil = new homePage();
+        ragusa tampil = new ragusa();
     }
 }

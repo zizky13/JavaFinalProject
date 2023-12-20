@@ -17,7 +17,7 @@ public class loginPage {
     public loginPage(){
         frame = new JFrame("WasteLessEats");
         frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.white);
         frame.setLayout(new GridLayout(4, 3));
 
