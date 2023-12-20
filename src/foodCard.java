@@ -7,11 +7,13 @@ public class foodCard extends cardProps {
     public foodCard(String foodName, String foodCost, String photoPath) {
         cardPanel = new JPanel();
         cardPanel.setLayout(new BorderLayout());
+        cardPanel.setBackground(Color.white);
 
         //balance and name panel
         namePanel = new JPanel();
         namePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 0));
         nameLabel = new JLabel(foodName);
+        namePanel.setBackground(Color.white);
 
         //balance label
         balanceLabel = new JLabel("price: " + foodCost);
@@ -23,9 +25,10 @@ public class foodCard extends cardProps {
         photoLabel = new JLabel(resizedIcon, SwingConstants.LEFT);
 
         descPanel = new JPanel();
+        descPanel.setBackground(Color.white);
         descText = new JTextArea("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ");
-        descText.setBackground(Color.black);
-        descText.setForeground(Color.white);
+        descText.setEditable(false);
+        descText.setForeground(Color.black);
         descText.setLineWrap(true);
         descPanel.add(descText);
 
@@ -36,6 +39,7 @@ public class foodCard extends cardProps {
         panelTengah.add(descPanel);
 
         JPanel panelBawah = new JPanel();
+        panelBawah.setBackground(Color.white);
         GridLayout layout =  new GridLayout(0,3);
         layout.setHgap(10);
         panelBawah.setLayout(layout);
@@ -60,6 +64,7 @@ public class foodCard extends cardProps {
         cardPanel.add(panelTengah, BorderLayout.CENTER);
         cardPanel.add(photoLabel, BorderLayout.WEST);
         cardPanel.add(panelBawah, BorderLayout.SOUTH);
+
         cardPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {

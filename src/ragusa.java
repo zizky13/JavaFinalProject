@@ -1,15 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ragusa {
 
     JFrame restoFrame;
+    keranjangPage test;
 
     JPanel restoPanel, descPanel, descPanel2, buttonPanel, addToCartPanel;
     ImageIcon filePhoto,resizedIcon;
-
     Font normalFont = new Font("Helvetica", Font.PLAIN, 12);
     Font superFont = new Font ("Helvetica", Font.BOLD,14);
+
     public ragusa () {
         restoFrame = new JFrame();
         restoFrame.setSize(400,720);
@@ -27,9 +30,13 @@ public class ragusa {
         JLabel vendorName = new JLabel("Ragusa");
         vendorName.setBounds(0,137,100,15); //descPanel height remain = 166 - 15 = 151
 
+        int price = 10_500;
+        JLabel harga = new JLabel("Rp. " + price);
+        harga.setBounds(0, 153, 400, 15);
+
         //use <HTML> tag for line break
         JLabel vendorAddress = new JLabel("<HTML>Jl. Veteran I No.10, RT.4/RW.2, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10110</HTML>");
-        vendorAddress.setBounds(0, 153,300, 54); //descPanel height remain = 151 - 34 = 117
+        vendorAddress.setBounds(0, 168,300, 54); //descPanel height remain = 151 - 34 = 117
         vendorAddress.setFont(normalFont);
 
         JLabel vendorDistance = new JLabel("4.03 KM");
@@ -39,44 +46,47 @@ public class ragusa {
         JLabel halalTag = new JLabel("Halal");
         halalTag.setOpaque(true);
         halalTag.setBackground(Color.green);
-        halalTag.setBounds(0, 208, 100, 15); //descPanel height remain = 117 - 15 = 102
+        halalTag.setBounds(0, 228, 100, 15); //descPanel height remain = 117 - 15 = 102
 
         JLabel foodTypeTag = new JLabel("Es Krim");
         foodTypeTag.setOpaque(true);
         foodTypeTag.setForeground(Color.white);
         foodTypeTag.setBackground(Color.blue);
-        foodTypeTag.setBounds(100, 208, 100, 15); //descPanel height remain = 117 - 15 = 102
+        foodTypeTag.setBounds(110, 228, 100, 15); //descPanel height remain = 117 - 15 = 102
 
 
         JLabel ratingTag = new JLabel("4.7⭐");
         ratingTag.setOpaque(true);
         ratingTag.setBackground(Color.yellow);
-        ratingTag.setBounds(200, 208, 100, 15); //descPanel height remain = 117 - 15 = 52
+        ratingTag.setBounds(220, 228, 100, 15); //descPanel height remain = 117 - 15 = 52
 
         descPanel = new JPanel();
         descPanel.setLayout(null);
         descPanel.setBounds(0,0,400,252);//maximum height 252 (35%), object exceed this value will not be drawn
         descPanel.add(photo);
         descPanel.add(vendorName);
+        descPanel.add(harga);
         descPanel.add(vendorAddress);
         descPanel.add(vendorDistance);
         descPanel.add(halalTag);
         descPanel.add(foodTypeTag);
         descPanel.add(ratingTag);
+        descPanel.setBackground(Color.lightGray);
 
         descPanel2 = new JPanel();
         descPanel2.setLayout(null);
-        descPanel2.setBounds(0,253,400,216); //30%
+        descPanel2.setBounds(0,253,400,196); //30%
+        descPanel2.setBackground(Color.red);
 
         JLabel judul = new JLabel("Food Description:");
         judul.setFont(superFont);
-        judul.setBounds(0, 0, 400, 24); // Sisa height = 216 - 24 = 192
+        judul.setBounds(0, 0, 400, 14); // Sisa height = 216 - 24 = 192
 
-        JLabel foodDescription = new JLabel("Lorem Ipsum Kontol Badak");
-        foodDescription.setBounds(0,24, 400,92); // Sisa height = 192 - 92 = 100
+        JLabel foodDescription = new JLabel("<HTML>Lorem Ipsum Kontol Bada Memek pepek anjing pukimai cuki Lorem Ipsum Kontol Bada Memek pepek anjing pukimai cuki Lorem Ipsum Kontol Bada Memek pepek anjing pukimai cuki Lorem Ipsum Kontol Bada Memek pepek anjing pukimai cuki </HTML>");
+        foodDescription.setBounds(0, 0, 400,92); // Sisa height = 192 - 92 = 100
 
         JLabel whatInside = new JLabel("What Inside?");
-        whatInside.setBounds(0,116, 400,24); // Sisa height = 100 - 24 = 76
+        whatInside.setBounds(0,106, 400,24); // Sisa height = 100 - 24 = 76
 
         JLabel contentMakanan = new JLabel(" - Kontol badak");
         contentMakanan.setBounds(0,140, 400,14); // Sisa height = 76 -14 = 62
@@ -85,6 +95,10 @@ public class ragusa {
         descPanel2.add(foodDescription);
         descPanel2.add(whatInside);
         descPanel2.add(contentMakanan);
+
+        JLabel sisaStok = new JLabel("Sisa stok adalah: ajsdfhasohfoaowehfkladsfklajfklajfw", SwingConstants.CENTER);
+        sisaStok.setBounds(0,452,400,10);
+        restoFrame.add(sisaStok);
 
         buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
@@ -116,6 +130,12 @@ public class ragusa {
 
         JButton addToCartButton = new JButton("Add to Cart");
         addToCartButton.setBounds(0,0,200,54);
+        addToCartButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                test.tambahOrder();
+            }
+        });
 
         addToCartPanel.add(addToCartButton);
 
@@ -123,6 +143,9 @@ public class ragusa {
         restoFrame.add(descPanel2);
         restoFrame.add(buttonPanel);
         restoFrame.add(addToCartPanel);
+
+        navBar navButton = new navBar(restoFrame);
+
 
         //TO DO:
         // 1. tambah button paling bawah

@@ -16,7 +16,8 @@ public class homePage {
         homeWindow.setSize(400, 720);
 //        homeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         homeWindow.getContentPane().setBackground(Color.white);
-        homeWindow.setLayout(new GridLayout(3, 1));
+        homeWindow.setLayout(null);
+        homeWindow.setBackground(Color.white);
 
         //instatiate card object
         card = new userCard("Yusuf", "10_000", "res/logo_UPJ.png");
@@ -27,9 +28,12 @@ public class homePage {
         homeWindow.add(card.cardPanel);
         homeWindow.add(card2.cardPanel);
         homeWindow.add(card3.cardPanel);
+        card.cardPanel.setBounds(0,0,400,180);
+        card2.cardPanel.setBounds(0,230,400,180);
+        card2.cardPanel.setBackground(Color.red);
+        card3.cardPanel.setBounds(0,410,400,180);
+        navBar nav = new navBar(homeWindow);
         homeWindow.setVisible(true);
-//        homeWindow.add(createCard.cardPanel);
-//        homeWindow.add(createCard.cardPanel);
 
     }
 
