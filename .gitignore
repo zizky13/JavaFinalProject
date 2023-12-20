@@ -27,3 +27,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+.idea/misc.xml
+.idea/dictionaries/nasit.xml
+.idea/libraries/mysql_connector_j_8_2_0.xml
+JavaFinalProject.iml
+*.iml
