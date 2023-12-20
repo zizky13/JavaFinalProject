@@ -6,9 +6,10 @@ import java.awt.event.ActionListener;
 public class keranjangPage {
 
     JPanel deliveryPanel, orderPanel,itemPanel;
+    JFrame keranjangFrame;
     orderCard card;
     public keranjangPage(){
-        JFrame keranjangFrame = new JFrame();
+        keranjangFrame = new JFrame();
         keranjangFrame.setSize(400,720);
         keranjangFrame.setVisible(true);
         keranjangFrame.setLayout(null);
@@ -41,8 +42,9 @@ public class keranjangPage {
 
         //order panel components #1
         itemPanel = new JPanel();
+        orderPanel.add(itemPanel);
+        itemPanel.setBounds(0,0,400,180);
         itemPanel.setLayout(new GridLayout(3,0));
-
 
 
         deliveryPanel.add(userName);
@@ -61,8 +63,13 @@ public class keranjangPage {
             }
         });
     }
-
     public void tambahOrder(){
-        itemPanel.add(card.orderPanel);
+        itemPanel.add(new JButton("test"));
+        keranjangFrame.repaint();
     }
+
+    public JPanel getItemPanel(){
+        return itemPanel;
+    }
+
 }

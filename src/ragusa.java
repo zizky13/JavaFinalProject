@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 public class ragusa {
 
     JFrame restoFrame;
-    keranjangPage test;
 
     JPanel restoPanel, descPanel, descPanel2, buttonPanel, addToCartPanel;
     ImageIcon filePhoto,resizedIcon;
@@ -133,7 +132,16 @@ public class ragusa {
         addToCartButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                test.tambahOrder();
+                keranjangPage keranjang = new keranjangPage();
+
+                // Menambahkan JButton ke itemPanel dari kelas lain
+                keranjang.getItemPanel().add(new JButton("Ditambahkan dari kelas lain"));
+
+                // Menjalankan method tambahOrder dari kelas lain
+                keranjang.tambahOrder();
+
+                // Perlu memanggil repaint() agar tampilan frame diperbarui
+                keranjang.keranjangFrame.repaint();
             }
         });
 
