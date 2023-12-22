@@ -129,21 +129,21 @@ public class ragusa {
 
         JButton addToCartButton = new JButton("Add to Cart");
         addToCartButton.setBounds(0,0,200,54);
-        addToCartButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                keranjangPage keranjang = new keranjangPage();
-
-                // Menambahkan JButton ke itemPanel dari kelas lain
-                keranjang.getItemPanel().add(new JButton("Ditambahkan dari kelas lain"));
-
-                // Menjalankan method tambahOrder dari kelas lain
-                keranjang.tambahOrder();
-
-                // Perlu memanggil repaint() agar tampilan frame diperbarui
-                keranjang.keranjangFrame.repaint();
-            }
-        });
+//        addToCartButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                keranjangPage keranjang = new keranjangPage();
+//
+//                // Menambahkan JButton ke itemPanel dari kelas lain
+//                keranjang.getItemPanel().add(new JButton("Ditambahkan dari kelas lain"));
+//
+//                // Menjalankan method tambahOrder dari kelas lain
+//                keranjang.tambahOrder();
+//
+//                // Perlu memanggil repaint() agar tampilan frame diperbarui
+//                keranjang.keranjangFrame.repaint();
+//            }
+//        });
 
         addToCartPanel.add(addToCartButton);
 
