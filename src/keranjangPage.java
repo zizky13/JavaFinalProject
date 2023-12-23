@@ -8,8 +8,9 @@ public class keranjangPage {
     JPanel deliveryPanel, orderPanel,itemPanel, backPanel;
     JButton backButt;
     orderCard card;
+    static JFrame keranjangFrame;
     public keranjangPage(){
-        JFrame keranjangFrame = new JFrame("Keranjang");
+        keranjangFrame = new JFrame("Keranjang");
         keranjangFrame.setSize(400,720);
         keranjangFrame.setVisible(true);
         keranjangFrame.setLayout(null);
