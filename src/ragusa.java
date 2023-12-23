@@ -105,18 +105,16 @@ public class ragusa {
         buttonPanel.setBounds(100, 469,200, 36);
 
         JButton minus = new JButton("-");
+        minus.setFont(new Font("Helvetica", Font.PLAIN, 24));
         minus.setBounds(0, 0, 50,36);
-        minus.setBackground(Color.green);
-        minus.setForeground(Color.white);
         minus.setFocusPainted(false);
 
         JLabel counter = new JLabel("1", SwingConstants.CENTER);
         counter.setBounds(50,0,100,36);
 
         JButton plus = new JButton("+");
+        plus.setFont(new Font("Helvetica", Font.PLAIN, 20));
         plus.setBounds(150, 0, 50,36);
-        plus.setBackground(Color.green);
-        plus.setForeground(Color.white);
         plus.setFocusPainted(false);
 
         buttonPanel.add(minus);
@@ -127,7 +125,7 @@ public class ragusa {
         addToCartPanel.setLayout(null);
         addToCartPanel.setBounds(100,515,200,54);
 
-        JButton addToCartButton = new JButton("Add to Cart");
+        JButton addToCartButton = new JButton(resized("res/AddToCartButton.png"));
         addToCartButton.setBounds(0,0,200,54);
 //        addToCartButton.addActionListener(new ActionListener() {
 //            @Override
@@ -159,5 +157,12 @@ public class ragusa {
         // 1. tambah button paling bawah
         // 2. ganti semua layout page jadi null
         // 3. button paling bawah -> universal button, buat satu class baru
+    }
+
+
+    private ImageIcon resized(String photoPath){
+        ImageIcon photo = new ImageIcon(photoPath);
+        Image userPhoto = photo.getImage().getScaledInstance(200, 54, Image.SCALE_AREA_AVERAGING);
+        return new ImageIcon(userPhoto);
     }
 }

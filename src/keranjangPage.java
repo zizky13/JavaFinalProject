@@ -45,7 +45,7 @@ public class keranjangPage {
         itemPanel.setLayout(new GridLayout(3,0));
 
         backPanel = new JPanel();
-        backButt = new JButton("Balik");
+        backButt = new JButton(resized("res/BackButton.png"));
         backPanel.setLayout(new GridLayout());
         backPanel.setBounds(0,0, 30,30);
         backPanel.add(backButt);
@@ -69,11 +69,9 @@ public class keranjangPage {
         });
     }
 
-    public void tambahOrder(){
-        itemPanel.add(card.orderPanel);
-    }
-
-    public static void main(String[] args) {
-        keranjangPage tampil = new keranjangPage();
+    private ImageIcon resized(String photoPath){
+        ImageIcon photo = new ImageIcon(photoPath);
+        Image userPhoto = photo.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+        return new ImageIcon(userPhoto);
     }
 }
