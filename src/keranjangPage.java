@@ -5,10 +5,12 @@ import java.awt.event.ActionListener;
 
 public class keranjangPage {
 
-    JPanel deliveryPanel, orderPanel,itemPanel;
+    JPanel deliveryPanel, orderPanel,itemPanel, backPanel;
+    JButton backButt;
     orderCard card;
+    static JFrame keranjangFrame;
     public keranjangPage(){
-        JFrame keranjangFrame = new JFrame();
+        keranjangFrame = new JFrame("Keranjang");
         keranjangFrame.setSize(400,720);
         keranjangFrame.setVisible(true);
         keranjangFrame.setLayout(null);
@@ -28,11 +30,11 @@ public class keranjangPage {
 
         //delivery panel components #1
         JLabel userName = new JLabel("Dimas");
-        userName.setBounds(10,10,400,15);
+        userName.setBounds(10,40,400,15);
 
         //delivery panel components #2
         JLabel location = new JLabel("<html>Jl. Veteran I No.10, RT.4/RW.2, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10110</html>");
-        location.setBounds(10,25,400,32);
+        location.setBounds(10,85,400,32);
 
         //delivery panel components #3
         String[] options = {"Gojek", "Grab"};
@@ -43,7 +45,13 @@ public class keranjangPage {
         itemPanel = new JPanel();
         itemPanel.setLayout(new GridLayout(3,0));
 
-
+        backPanel = new JPanel();
+        backButt = new JButton("Balik");
+        backPanel.setLayout(new GridLayout());
+        backPanel.setBounds(0,0, 30,30);
+        backPanel.add(backButt);
+        deliveryPanel.setComponentZOrder(backPanel,0);
+        keranjangFrame.add(backPanel);
 
         deliveryPanel.add(userName);
         deliveryPanel.add(location);

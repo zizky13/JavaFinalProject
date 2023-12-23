@@ -18,10 +18,24 @@ public class navBar {
         JButton discover = new JButton("Discover");
         discover.setBounds(133,0,133,73);
         navPanel.add(discover);
+        discover.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                homePage home = new homePage();
+                foodDetails.restoFrame.setVisible(false);
+            }
+        });
+
 
         JButton keranjang = new JButton("Keranjang");
         keranjang.setBounds(266,0,133,73);
         navPanel.add(keranjang);
+        keranjang.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                keranjangPage keranjang = new keranjangPage();
+            }
+        });
     }
     public navBar(JFrame frame){
         JPanel navPanel = new JPanel();
@@ -37,6 +51,28 @@ public class navBar {
         JButton discover = new JButton("Discover");
         discover.setBounds(133,0,133,73);
         navPanel.add(discover);
+        discover.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (foodDetails.restoFrame != null){
+                    if(homePage.homeFrame != null){
+                        foodDetails.restoFrame.dispose();
+                        homePage home = new homePage();
+                    }
+                }
+            }
+        });
+
+        //discover button listener
+        discover.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//                if (keranjangPage.keranjangFrame != null || homePage.homeWindow == null){
+//                    keranjangPage.keranjangFrame.dispose();
+//                    homePage home = new homePage();
+//                }
+            }
+        });
 
         JButton keranjang = new JButton("Keranjang");
         keranjang.setBounds(266,0,133,73);

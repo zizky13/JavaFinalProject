@@ -4,26 +4,31 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class foodCard extends cardProps {
+    JPanel panelTengah, panelBawah;
+    JLabel halalTag, typeTag, rating;
+
     public foodCard(String foodName, String foodCost, String photoPath) {
+        //================== PANEL INIT =====================
         cardPanel = new JPanel();
         cardPanel.setLayout(new BorderLayout());
         cardPanel.setBackground(Color.white);
 
-        //balance and name panel
+        //================== NAME PANEL INIT =====================
         namePanel = new JPanel();
         namePanel.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 0));
         nameLabel = new JLabel(foodName);
         namePanel.setBackground(Color.white);
 
-        //balance label
+        //================== BALANCE LABEL INIT =====================
         balanceLabel = new JLabel("price: " + foodCost);
 
-        //photo panel
+        //================== PHOTO LABEL INIT =====================
         photo = new ImageIcon(photoPath);
         Image userPhoto = photo.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
         resizedIcon = new ImageIcon(userPhoto);
         photoLabel = new JLabel(resizedIcon, SwingConstants.LEFT);
 
+        //================== FRAME INIT =====================
         descPanel = new JPanel();
         descPanel.setBackground(Color.white);
         descText = new JTextArea("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ");
@@ -32,39 +37,52 @@ public class foodCard extends cardProps {
         descText.setLineWrap(true);
         descPanel.add(descText);
 
-
-        JPanel panelTengah = new JPanel();
+        //================== MIDDLE PANEL INIT =====================
+        panelTengah = new JPanel();
         panelTengah.setLayout(new BoxLayout(panelTengah, BoxLayout.Y_AXIS));
         panelTengah.add(namePanel);
         panelTengah.add(descPanel);
 
-        JPanel panelBawah = new JPanel();
+        //================== BOTTOM PANEL INIT =====================
+        panelBawah = new JPanel();
         panelBawah.setBackground(Color.white);
         GridLayout layout =  new GridLayout(0,3);
         layout.setHgap(10);
         panelBawah.setLayout(layout);
-        JLabel halalTag = new JLabel("Halal");
+
+        //================== HALAL TAG INIT =====================
+        halalTag = new JLabel("Halal");
         halalTag.setOpaque(true);
         halalTag.setBackground(Color.green);
         halalTag.setForeground(Color.black);
-        JLabel typeTag = new JLabel("Soup");
+
+        //================== FOOD TYPE TAG INIT =====================
+        typeTag = new JLabel("Soup");
         typeTag.setOpaque(true);
         typeTag.setBackground(Color.cyan);
         typeTag.setForeground(Color.white);
-        JLabel rating = new JLabel("4.7");
+
+        //================== RATING INIT =====================
+        rating = new JLabel("4.7");
         rating.setOpaque(true);
         rating.setBackground(Color.yellow);
         rating.setForeground(Color.black);
+
+        //================== ADDING TO BOTTOM PANEL =====================
         panelBawah.add(halalTag);
         panelBawah.add(typeTag);
         panelBawah.add(rating);
 
+        //================== ADDING TO NAME PANEL =====================
         namePanel.add(nameLabel);
         namePanel.add(balanceLabel);
+
+        //================== ADDING TO CARD PANEL INIT =====================
         cardPanel.add(panelTengah, BorderLayout.CENTER);
         cardPanel.add(photoLabel, BorderLayout.WEST);
         cardPanel.add(panelBawah, BorderLayout.SOUTH);
 
+        //================== CARD PANEL MOUSE LISTENER =====================
         cardPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -74,13 +92,15 @@ public class foodCard extends cardProps {
         });
     }
 
+    //========== CONDITIONAL TO DECIDE WHAT PAGE TO OPEN AFTER CLICK ==========
     public void openDetailsPage(String foodname){
         switch (foodname){
             case "Lo Ciento":
                 loCiento yeet = new loCiento();
                 break;
             case "Ragusa":
-                ragusa jeez = new ragusa();
+                foodDetails jeez = new foodDetails();
+                homePage.homeWindow.dispose();
                 break;
         }
     }
