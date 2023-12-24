@@ -77,7 +77,7 @@ public class foodDetails {
         //======================= VENDOR PANEL INIT AND ADD COMPONENT ========================
         vendorPanel = new JPanel();
         vendorPanel.setLayout(null);
-        vendorPanel.setBounds(0,0,400,252);//maximum height 252 (35%), object exceed this value will not be drawn
+        vendorPanel.setBounds(0,0,400,247);//maximum height 252 (35%), object exceed this value will not be drawn
         vendorPanel.add(photo);
         vendorPanel.add(vendorName);
         vendorPanel.add(harga);
@@ -86,14 +86,14 @@ public class foodDetails {
         vendorPanel.add(halalTag);
         vendorPanel.add(foodTypeTag);
         vendorPanel.add(ratingTag);
-        vendorPanel.setBackground(Color.lightGray);
+        vendorPanel.setBackground(new Color(86,158,158));
 
 
         //======================= DESC PANEL INIT AND ADD COMPONENT ========================
         descPanel = new JPanel();
         descPanel.setLayout(null);
         descPanel.setBounds(0,253,400,196); //30%
-        descPanel.setBackground(Color.red);
+        descPanel.setBackground(new Color(86,158,158));
 
 
         //======================= JUDUL FOOD DESCRIPTION INIT ========================
@@ -103,7 +103,8 @@ public class foodDetails {
 
         //======================= FOOD DESCRIPTION INIT ========================
         foodDescription = new JLabel("<HTML>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </HTML>");
-        foodDescription.setBounds(0, 0, 400,92); // Sisa height = 192 - 92 = 100
+        foodDescription.setBounds(0, 18, 400,92); // Sisa height = 192 - 92 = 100
+        foodDescription.setVerticalAlignment(JLabel.TOP);
 
         //======================= WHAT'S INSIDE INIT ========================
         whatInside = new JLabel("What's Inside?");
@@ -111,8 +112,9 @@ public class foodDetails {
 
 
         //======================= FOOD CONTENT INIT ========================
-        contentMakanan = new JLabel(" - Kontol badak");
-        contentMakanan.setBounds(0,140, 400,14); // Sisa height = 76 -14 = 62
+        contentMakanan = new JLabel("<html> - Es Krim Jeruk <br> - Es Krim Kelapa </html>");
+        contentMakanan.setBounds(5,130, 395,60); // Sisa height = 76 -14 = 62
+        contentMakanan.setVerticalAlignment(JLabel.TOP);
 
         //======================= ADDING TO DESC PANEL ========================
         descPanel.add(judul);
@@ -127,13 +129,14 @@ public class foodDetails {
 
         buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
-        buttonPanel.setBackground(Color.red);
+        buttonPanel.setBackground(Color.white);
         buttonPanel.setBounds(100, 469,200, 36);
 
         JButton minus = new JButton("-");
         minus.setFont(new Font("Helvetica", Font.PLAIN, 24));
         minus.setBounds(0, 0, 50,36);
         minus.setFocusPainted(false);
+        minus.setBackground(new Color(86,158,158));
 
         JLabel counter = new JLabel("1", SwingConstants.CENTER);
         counter.setBounds(50,0,100,36);
@@ -142,6 +145,7 @@ public class foodDetails {
         plus.setFont(new Font("Helvetica", Font.PLAIN, 20));
         plus.setBounds(150, 0, 50,36);
         plus.setFocusPainted(false);
+        plus.setBackground(new Color(86,158,158));
 
         buttonPanel.add(minus);
         buttonPanel.add(counter);
@@ -151,8 +155,9 @@ public class foodDetails {
         addToCartPanel.setLayout(null);
         addToCartPanel.setBounds(100,515,200,54);
 
+        // ================================= BACK BUTTON =============================
         backPanel = new JPanel();
-        backButt = new JButton("Balik");
+        backButt = new JButton(resized("res/BackButton.png",30,30));
         backPanel.setLayout(new GridLayout());
         backPanel.setBounds(0,0, 30,30);
         backPanel.add(backButt);
@@ -162,12 +167,12 @@ public class foodDetails {
 
         JButton addToCartButton = new JButton(resized("res/AddToCartButton.png"));
         addToCartButton.setBounds(0,0,200,54);
-        addToCartButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                test.tambahOrder();
-            }
-        });
+//        addToCartButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                test.tambahOrder();
+//            }
+//        });
 
         addToCartPanel.add(addToCartButton);
 
@@ -190,6 +195,11 @@ public class foodDetails {
     private ImageIcon resized(String photoPath){
         ImageIcon photo = new ImageIcon(photoPath);
         Image userPhoto = photo.getImage().getScaledInstance(200, 54, Image.SCALE_AREA_AVERAGING);
+        return new ImageIcon(userPhoto);
+    }
+    private ImageIcon resized(String photoPath, int Width, int Height){
+        ImageIcon photo = new ImageIcon(photoPath);
+        Image userPhoto = photo.getImage().getScaledInstance(Width, Height, Image.SCALE_SMOOTH);
         return new ImageIcon(userPhoto);
     }
 }

@@ -32,9 +32,8 @@ public class homePage {
 
         //================== SET BOUNDS FOR CARDS =====================
         card.cardPanel.setBounds(0,0,400,180);
-        card2.cardPanel.setBounds(0,230,400,180);
-        card2.cardPanel.setBackground(Color.red);
-        card3.cardPanel.setBounds(0,410,400,180);
+        card2.cardPanel.setBounds(0,190,400,180);
+        card3.cardPanel.setBounds(0,380,400,180);
 
         ////================== MAV BAR INIT =====================
         navBar nav = new navBar(homeFrame);

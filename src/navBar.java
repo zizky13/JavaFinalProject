@@ -44,11 +44,11 @@ public class navBar {
         navPanel.setBackground(Color.red);
         frame.add(navPanel);
 
-        JButton user = new JButton(resized("res/UserButtonBaru2.png"));
+        JButton user = new JButton(resized("res/UserButtonBaru2.png", 133, 73));
         user.setBounds(0,0,133,73);
         navPanel.add(user);
 
-        JButton discover = new JButton(resized("res/DiscoverButtton.png"));
+        JButton discover = new JButton(resized("res/DiscoverButtton.png", 133, 73));
         discover.setBounds(133,0,133,73);
         navPanel.add(discover);
         discover.addActionListener(new ActionListener() {
@@ -74,7 +74,7 @@ public class navBar {
             }
         });
 
-        JButton keranjang = new JButton(resized("res/CartButtton.png"));
+        JButton keranjang = new JButton(resized("res/CartButtton.png", 133, 73));
         keranjang.setBounds(266,0,133,73);
         navPanel.add(keranjang);
         keranjang.addActionListener(new ActionListener() {
@@ -85,9 +85,9 @@ public class navBar {
         });
     }
 
-    private ImageIcon resized(String photoPath){
+    private ImageIcon resized(String photoPath, int Width, int Height){
         ImageIcon photo = new ImageIcon(photoPath);
-        Image userPhoto = photo.getImage().getScaledInstance(133, 73, Image.SCALE_SMOOTH);
+        Image userPhoto = photo.getImage().getScaledInstance(Width, Height, Image.SCALE_SMOOTH);
         return new ImageIcon(userPhoto);
     }
 }
