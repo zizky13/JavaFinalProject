@@ -6,7 +6,8 @@ import java.sql.*;
 
 public class loginPage {
 
-    JFrame frame;
+    //================== FIELDS INIT =====================
+    JFrame loginFrame;
     JPanel titleNamePanel, usernamePanel, passwordPanel;
     JLabel usernameLabel, passwordLabel, titleNameLabel;
     JPasswordField passwordField;
@@ -15,48 +16,59 @@ public class loginPage {
     Font normalFont = new Font("Helvetica", Font.PLAIN, 12);
 
     public loginPage(){
-        frame = new JFrame("WasteLessEats");
-        frame.setSize(400, 300);
+        //================== FRAME INIT =====================
+        loginFrame = new JFrame("WasteLessEats");
+        loginFrame.setSize(400, 300);
 //        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground(Color.white);
-        frame.setLayout(new GridLayout(4, 3));
+        loginFrame.getContentPane().setBackground(Color.white);
+        loginFrame.setLayout(new GridLayout(4, 3));
 
+        //================== TITLE NAME LABEL INIT =====================
         titleNameLabel = new JLabel("WasteLessEats",SwingConstants.CENTER);
         titleNameLabel.setFont(normalFont);
         titleNameLabel.setForeground(Color.black);
         titleNameLabel.setVisible(true);
-        frame.add(titleNameLabel);
+        loginFrame.add(titleNameLabel);
 
+        //================== TITLE NAME PANEL INIT =====================
         titleNamePanel = new JPanel();
         titleNamePanel.setBackground(Color.black);
         titleNamePanel.setLayout(new GridLayout(2, 1));
-        frame.add(titleNamePanel);
+        loginFrame.add(titleNamePanel);
 
+        //================== USERNAME PANEL INIT =====================
         usernamePanel = new JPanel(new FlowLayout());
         titleNamePanel.add(usernamePanel);
 
+        //================== PASSWORD PANEL INIT =====================
         passwordPanel = new JPanel(new FlowLayout());
         titleNamePanel.add(passwordPanel);
 
+        //================== USERNAME LABEL INIT =====================
         usernameLabel = new JLabel("Username");
         usernameLabel.setFont(normalFont);
         usernamePanel.add(usernameLabel);
 
+        //================== PASSWORD LABEL INIT =====================
         passwordLabel = new JLabel("Password");
         passwordLabel.setFont(normalFont);
         passwordPanel.add(passwordLabel);
 
+        //================== USERNAME FIELD INIT =====================
         usernameField = new JTextField(15);
         usernamePanel.add(usernameField);
 
+        //================== PASSWORD FIELD INIT =====================
         passwordField = new JPasswordField(15);
         passwordPanel.add(passwordField);
 
+        //================== LOGIN BUTTON INIT =====================
         loginButton = new JButton("Login");
         loginButton.setFont(normalFont);
-        frame.add(loginButton);
-        frame.setVisible(true);
+        loginFrame.add(loginButton);
+        loginFrame.setVisible(true);
 
+        //================== LOGIN BUTTON LISTENER =====================
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,16 +78,18 @@ public class loginPage {
                 boolean isValid = validateCredentials(enteredUsername, enteredPassword);
 
                 if (isValid) {
-                    frame.setVisible(false);
+                    loginFrame.setVisible(false);
                     homePage home = new homePage();
                     // Perform actions after successful login
                 } else {
-                    JOptionPane.showMessageDialog(frame, "Invalid username or password.");
+                    JOptionPane.showMessageDialog(loginFrame, "Invalid username or password.");
                 }
             }
         });
     }
 
+
+    //================== METHOD TO VALIDATE CREDENTIALS =====================
     private boolean validateCredentials(String username, String password) {
         // Replace with your database connection code and query
         // Example: JDBC connection and SQL query

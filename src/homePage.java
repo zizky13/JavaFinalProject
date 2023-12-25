@@ -5,35 +5,38 @@ import java.awt.event.MouseEvent;
 
 public class homePage {
 
-    JFrame homeWindow;
+    static JFrame homeFrame;
     JButton basketButton, userButton, discoverButton;
     JPanel playerCard, foodCard1, foodCard2, foodCard3;
     userCard card;
     foodCard card2, card3;
     public homePage(){
-        //setting home page frame
-        homeWindow = new JFrame();
-        homeWindow.setSize(400, 720);
+        //================== FRAME INIT =====================
+        homeFrame = new JFrame("Home Page");
+        homeFrame.setSize(400, 720);
 //        homeWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        homeWindow.getContentPane().setBackground(Color.white);
-        homeWindow.setLayout(null);
-        homeWindow.setBackground(Color.white);
+        homeFrame.getContentPane().setBackground(Color.white);
+        homeFrame.setLayout(null);
+        homeFrame.setBackground(Color.white);
+        homeFrame.setVisible(true);
 
-        //instatiate card object
-        card = new userCard("Yusuf", "10_000", "res/logo_UPJ.png");
-        card2 = new foodCard("Lo Ciento","20_000","res/logo_UPJ.png");
-        card3 = new foodCard("Ragusa","30_000","res/logo_UPJ.png");
+        //================== CARD OBJECT INIT =====================
+        card = new userCard("Yusuf", "RP 100000", "res/wireFrameProfileIcon.png");
+        card2 = new foodCard("Holiaw",30_000,"res/holiawIcon.png", "Non-Halal", "Noodle", "<HTML> A noodle place with a simple decor that is popular for its Grilled Pork Noodles, mixed rice, and others. </HTML>");
+        card3 = new foodCard("Ragusa Es Italia",10_000,"res/ragusaIcon.png", "Halal", "Ice Cream", "<HTML>Ice cream parlor serving a variety of creative desserts in a cozy space with a retro vibe. You can buy Ragusa’s surplus items inside wrapped inside a bag. </HTML>");
 
-        //adding card to home page
-        homeWindow.add(card.cardPanel);
-        homeWindow.add(card2.cardPanel);
-        homeWindow.add(card3.cardPanel);
+        //================== ADDING CARD TO FRAME =====================
+        homeFrame.add(card.cardPanel);
+        homeFrame.add(card2.cardPanel);
+        homeFrame.add(card3.cardPanel);
+
+        //================== SET BOUNDS FOR CARDS =====================
         card.cardPanel.setBounds(0,0,400,180);
-        card2.cardPanel.setBounds(0,230,400,180);
-        card2.cardPanel.setBackground(Color.red);
-        card3.cardPanel.setBounds(0,410,400,180);
-        navBar nav = new navBar(homeWindow);
-        homeWindow.setVisible(true);
+        card2.cardPanel.setBounds(0,190,400,180);
+        card3.cardPanel.setBounds(0,380,400,180);
+
+        ////================== MAV BAR INIT =====================
+        navBar nav = new navBar(homeFrame);
 
     }
 
