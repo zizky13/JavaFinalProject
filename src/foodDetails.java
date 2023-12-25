@@ -12,7 +12,7 @@ public class foodDetails {
 
     JPanel restoPanel, vendorPanel, descPanel, buttonPanel, addToCartPanel,backPanel;
     JLabel judul, foodDescription,whatInside,contentMakanan,sisaStok;
-    JButton backButt;
+    backButton back = new backButton();
     ImageIcon filePhoto,resizedIcon;
     Font normalFont = new Font("Helvetica", Font.PLAIN, 12);
     Font superFont = new Font ("Helvetica", Font.BOLD,14);
@@ -154,29 +154,43 @@ public class foodDetails {
         addToCartPanel.setBounds(100,515,200,54);
 
         backPanel = new JPanel();
-        backButt = new JButton("Balik");
+        back = new backButton();
         backPanel.setLayout(new GridLayout());
         backPanel.setBounds(0,0, 30,30);
-        backPanel.add(backButt);
-        vendorPanel.setComponentZOrder(backPanel,0);
-        restoFrame.add(backPanel);
+        backPanel.add(back);
 
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!backButton.viewStack.isEmpty()){
+                    JFrame prevFrame = backButton.viewStack.peek();
+                    prevFrame.setVisible(true);
+                    restoFrame.dispose();
+                    backButton.viewStack.pop();
+                } else {
+                    System.out.println("Stack is empty");
+                }
+            }
+        });
 
         JButton addToCartButton = new JButton("Add to Cart");
         addToCartButton.setBounds(0,0,200,54);
         addToCartButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                backButton.viewStack.push(restoFrame);
                 test.tambahOrder();
             }
         });
 
         addToCartPanel.add(addToCartButton);
 
+        vendorPanel.setComponentZOrder(backPanel,0);
         restoFrame.add(vendorPanel);
         restoFrame.add(descPanel);
         restoFrame.add(buttonPanel);
         restoFrame.add(addToCartPanel);
+        restoFrame.add(backPanel);
 
         navBar navButton = new navBar(restoFrame);
 

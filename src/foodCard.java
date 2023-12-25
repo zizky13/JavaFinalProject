@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 public class foodCard extends cardProps {
     JPanel panelTengah, panelBawah;
     JLabel halalTag, typeTag, rating;
+    backButton back;
 
     public foodCard(String foodName, String foodCost, String photoPath) {
         //================== PANEL INIT =====================
@@ -83,6 +84,8 @@ public class foodCard extends cardProps {
         cardPanel.add(panelBawah, BorderLayout.SOUTH);
 
         //================== CARD PANEL MOUSE LISTENER =====================
+        back = new backButton();
+        back.setVisible(false);
         cardPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -97,10 +100,12 @@ public class foodCard extends cardProps {
         switch (foodname){
             case "Lo Ciento":
                 loCiento yeet = new loCiento();
+                backButton.viewStack.push(homePage.homeFrame);
                 break;
             case "Ragusa":
                 foodDetails jeez = new foodDetails();
-                homePage.homeWindow.dispose();
+                homePage.homeFrame.dispose();
+                backButton.viewStack.push(homePage.homeFrame);
                 break;
         }
     }
