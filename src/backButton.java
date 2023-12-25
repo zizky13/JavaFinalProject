@@ -4,15 +4,15 @@ import java.util.Stack;
 
 public class backButton extends JButton {
     JPanel backPanel;
-    JButton back;
+    JButton kembali;
     public static Stack<JFrame> viewStack;
     public backButton(){
         viewStack = new Stack<>();
         backPanel = new JPanel();
-        back = new JButton(resized());
+        kembali = new JButton(resized());
         backPanel.setLayout(new GridLayout());
         backPanel.setBounds(0,0, 30,30);
-        backPanel.add(back);
+        backPanel.add(kembali);
     }
 
     private ImageIcon resized(){

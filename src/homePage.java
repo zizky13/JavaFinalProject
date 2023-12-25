@@ -21,9 +21,9 @@ public class homePage {
         homeFrame.setVisible(true);
 
         //================== CARD OBJECT INIT =====================
-        card = new userCard("Yusuf", "10_000", "res/wireFrameProfileIcon.png");
-        card2 = new foodCard("Lo Ciento","20_000","res/holiawIcon.png");
-        card3 = new foodCard("Ragusa","30_000","res/ragusaIcon.png");
+        card = new userCard("Yusuf", "RP 100000", "res/wireFrameProfileIcon.png");
+        card2 = new foodCard("Holiaw",30_000,"res/holiawIcon.png", "Non-Halal", "Noodle", "<HTML> A noodle place with a simple decor that is popular for its Grilled Pork Noodles, mixed rice, and others. </HTML>");
+        card3 = new foodCard("Ragusa Es Italia",10_000,"res/ragusaIcon.png", "Halal", "Ice Cream", "<HTML>Ice cream parlor serving a variety of creative desserts in a cozy space with a retro vibe. You can buy Ragusa’s surplus items inside wrapped inside a bag. </HTML>");
 
         //================== ADDING CARD TO FRAME =====================
         homeFrame.add(card.cardPanel);

@@ -17,7 +17,8 @@ public class foodDetails {
     Font normalFont = new Font("Helvetica", Font.PLAIN, 12);
     Font superFont = new Font ("Helvetica", Font.BOLD,14);
 
-    public foodDetails(String photoPath) { //can be added parameters for sellers perspective
+    public foodDetails(String photoPath, String vendorLabel, int price, String address,String distance, String halalStatus, String foodType,
+                       String rate, String descTitle, String foodDesc,String content) { //can be added parameters for sellers perspective
 
         //======================= RESTO FRAME INIT ========================
         restoFrame = new JFrame("Food Details");
@@ -34,33 +35,37 @@ public class foodDetails {
         photo.setBounds(0,0,400,136); //descPanel height remain = 252 - 86 = 166
 
         //======================= VENDOR NAME INIT ========================
-        JLabel vendorName = new JLabel("Ragusa");
+        JLabel vendorName = new JLabel(vendorLabel);
         vendorName.setBounds(0,137,100,15); //descPanel height remain = 166 - 15 = 151
 
-        //======================= PRICE INIT ========================
-        int price = 10_500;
+        //======================= PRICE INIT =======================
         JLabel harga = new JLabel("Rp. " + price);
         harga.setBounds(0, 153, 400, 15);
 
         //======================= VENDOR ADDRESS INIT ========================
         //use <HTML> tag for line break
-        JLabel vendorAddress = new JLabel("<HTML>Jl. Veteran I No.10, RT.4/RW.2, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10110</HTML>");
+        JLabel vendorAddress = new JLabel(address);
         vendorAddress.setBounds(0, 168,300, 54); //descPanel height remain = 151 - 34 = 117
         vendorAddress.setFont(normalFont);
 
         //======================= VENDOR DISTANCE INIT ========================
-        JLabel vendorDistance = new JLabel("4.03 KM");
+        JLabel vendorDistance = new JLabel(distance);
         vendorDistance.setBounds(300,137,100,34); //descPanel height remain = 151 - 34 = 117
         vendorDistance.setFont(normalFont);
 
         //======================= HALAL TAG INIT ========================
-        JLabel halalTag = new JLabel("Halal");
-        halalTag.setOpaque(true);
-        halalTag.setBackground(Color.green);
+        JLabel halalTag = new JLabel(halalStatus);
+        if (halalStatus == "Halal"){
+            halalTag.setBackground(Color.green);
+            halalTag.setOpaque(true);
+        }else {
+            halalTag.setBackground(Color.red);
+            halalTag.setOpaque(true);
+        }
         halalTag.setBounds(0, 228, 100, 15); //descPanel height remain = 117 - 15 = 102
 
         //======================= FOOD TYPE INIT ========================
-        JLabel foodTypeTag = new JLabel("Es Krim");
+        JLabel foodTypeTag = new JLabel(foodType);
         foodTypeTag.setOpaque(true);
         foodTypeTag.setForeground(Color.white);
         foodTypeTag.setBackground(Color.blue);
@@ -68,7 +73,7 @@ public class foodDetails {
 
 
         //======================= RATING INIT ========================
-        JLabel ratingTag = new JLabel("4.7⭐");
+        JLabel ratingTag = new JLabel(rate);
         ratingTag.setOpaque(true);
         ratingTag.setBackground(Color.yellow);
         ratingTag.setBounds(220, 228, 100, 15); //descPanel height remain = 117 - 15 = 52
@@ -96,12 +101,12 @@ public class foodDetails {
 
 
         //======================= JUDUL FOOD DESCRIPTION INIT ========================
-        judul = new JLabel("Food Description:");
+        judul = new JLabel(descTitle);
         judul.setFont(superFont);
         judul.setBounds(0, 0, 400, 14); // Sisa height = 216 - 24 = 192
 
         //======================= FOOD DESCRIPTION INIT ========================
-        foodDescription = new JLabel("<HTML>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </HTML>");
+        foodDescription = new JLabel(foodDesc);
         foodDescription.setBounds(0, 18, 400,92); // Sisa height = 192 - 92 = 100
         foodDescription.setVerticalAlignment(JLabel.TOP);
 
@@ -111,7 +116,7 @@ public class foodDetails {
 
 
         //======================= FOOD CONTENT INIT ========================
-        contentMakanan = new JLabel("<html> - Es Krim Jeruk <br> - Es Krim Kelapa </html>");
+        contentMakanan = new JLabel(content);
         contentMakanan.setBounds(5,130, 395,60); // Sisa height = 76 -14 = 62
         contentMakanan.setVerticalAlignment(JLabel.TOP);
 
@@ -161,7 +166,7 @@ public class foodDetails {
         backPanel.setBounds(0,0, 30,30);
         backPanel.add(back.backPanel);
 
-        back.addActionListener(new ActionListener() {
+        back.kembali.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!backButton.viewStack.isEmpty()){

@@ -8,7 +8,7 @@ public class foodCard extends cardProps {
     JLabel halalTag, typeTag, rating;
     backButton back;
 
-    public foodCard(String foodName, String foodCost, String photoPath) {
+    public foodCard(String foodName, int foodCost, String photoPath, String halalStatus, String foodType, String description) {
         //================== PANEL INIT =====================
         cardPanel = new JPanel();
         cardPanel.setLayout(new BorderLayout());
@@ -28,7 +28,7 @@ public class foodCard extends cardProps {
 
 
         //================== BALANCE LABEL INIT =====================
-        balanceLabel = new JLabel("price: " + foodCost,SwingConstants.CENTER);
+        balanceLabel = new JLabel("Rp. " + foodCost,SwingConstants.CENTER);
         balanceLabel.setBounds(100,0,95,30);
         balanceLabel.setBackground(Color.white);
         balanceLabel.setOpaque(true);
@@ -47,7 +47,7 @@ public class foodCard extends cardProps {
         descPanel.setBounds(5, 40, 200, 115);
         descPanel.setLayout(null);
         descText = new JLabel();
-        descText.setText("<HTML>Lorem Ipsum Dummy Text Lorem Ipsum Dummy Text Lorem Ipsum Dummy Text Lorem Ipsum Dummy Text</HTML>");
+        descText.setText(description);
         descText.setVerticalAlignment(JLabel.TOP);
         descText.setBounds(5, 0, 180, 100);
         descPanel.add(descText);
@@ -71,14 +71,19 @@ public class foodCard extends cardProps {
         panelBawah.setLayout(layout);
 
         //================== HALAL TAG INIT =====================
-        halalTag = new JLabel("Halal");
+        halalTag = new JLabel(halalStatus);
+        if (halalStatus == "Halal"){
+            halalTag.setBackground(Color.green);
+            halalTag.setOpaque(true);
+        }else {
+            halalTag.setBackground(Color.red);
+            halalTag.setOpaque(true);
+        }
         halalTag.setHorizontalAlignment(JLabel.CENTER);
-        halalTag.setOpaque(true);
-        halalTag.setBackground(Color.green);
         halalTag.setForeground(Color.black);
 
         //================== FOOD TYPE TAG INIT =====================
-        typeTag = new JLabel("Soup");
+        typeTag = new JLabel(foodType);
         typeTag.setHorizontalAlignment(JLabel.CENTER);
         typeTag.setOpaque(true);
         typeTag.setBackground(Color.cyan);
@@ -125,12 +130,16 @@ public class foodCard extends cardProps {
     //========== CONDITIONAL TO DECIDE WHAT PAGE TO OPEN AFTER CLICK ==========
     public void openDetailsPage(String foodname){
         switch (foodname){
-            case "Lo Ciento":
-                loCiento yeet = new loCiento();
+            case "Holiaw":
+                foodDetails yeet = new foodDetails("res/holiaw_food.jpeg","Holiaw",30_000,"<HTML> Jl. Raya Klp. Kopyor No.19 Blok Q1, RT.11/RW.19, Klp. Gading Tim., Kec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota Jakarta 14240</HTML>",
+                        "5.0 KM","Non-Halal","Noodles","4.87","Holiaw","<HTML> A noodle place with a simple decor that is popular for its Grilled Pork Noodles, mixed rice, and others. </HTML>",
+                        "<HTML>Mie Siobak (1 porsi) <br/> Bakso Goreng (1 porsi) <br/> Mie Campur (1 porsi) </HTML>");
                 backButton.viewStack.push(homePage.homeFrame);
                 break;
-            case "Ragusa":
-                foodDetails jeez = new foodDetails("res/gambarEskrim.png");
+            case "Ragusa Es Italia":
+                foodDetails jeez = new foodDetails("res/gambarEskrim.png","Ragusa Es Italia",10_000,"<HTML>Jl. Veteran I No.10, RT.4/RW.2, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10110</HTML>","4.07 KM","Halal","Ice Cream","4.8","Paket Surplus Ragusa",
+                        "<HTML>Ice cream parlor serving a variety of creative desserts in a cozy space with a retro vibe. You can buy Ragusa’s surplus items inside wrapped inside a bag. </HTML>",
+                            "<HTML>Banana Split Ice Cream (1 porsi) <br/> Spaghetti Ice Cream (1 porsi) <br/> Random Fruit Jams (1 pcs)");
                 homePage.homeFrame.dispose();
                 backButton.viewStack.push(homePage.homeFrame);
                 break;
