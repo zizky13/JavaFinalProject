@@ -159,7 +159,7 @@ public class foodDetails {
         back = new backButton();
         backPanel.setLayout(new GridLayout());
         backPanel.setBounds(0,0, 30,30);
-        backPanel.add(back);
+        backPanel.add(back.backPanel);
 
         back.addActionListener(new ActionListener() {
             @Override
