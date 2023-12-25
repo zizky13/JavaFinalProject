@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 public class foodCard extends cardProps {
     JPanel panelTengah, panelBawah;
     JLabel halalTag, typeTag, rating;
+    backButton back;
 
     public foodCard(String foodName, String foodCost, String photoPath) {
         //================== PANEL INIT =====================
@@ -52,14 +53,6 @@ public class foodCard extends cardProps {
         descPanel.add(descText);
         descPanel.setBorder(BorderFactory.createLineBorder(Color.white,3));
 
-
-//        descPanel = new JPanel();
-//        descPanel.setBackground(Color.white);
-//        descText = new JTextArea("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ");
-//        descText.setEditable(false);
-//        descText.setForeground(Color.black);
-//        descText.setLineWrap(true);
-//        descPanel.add(descText);
         //================== MIDDLE PANEL INIT =====================
         panelTengah = new JPanel();
         panelTengah.setLayout(null);
@@ -118,6 +111,8 @@ public class foodCard extends cardProps {
 //        cardPanel.add(panelBawah, BorderLayout.SOUTH);
 
         //================== CARD PANEL MOUSE LISTENER =====================
+        back = new backButton();
+        back.setVisible(false);
         cardPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -132,10 +127,12 @@ public class foodCard extends cardProps {
         switch (foodname){
             case "Lo Ciento":
                 loCiento yeet = new loCiento();
+                backButton.viewStack.push(homePage.homeFrame);
                 break;
             case "Ragusa":
                 foodDetails jeez = new foodDetails("res/gambarEskrim.png");
                 homePage.homeFrame.dispose();
+                backButton.viewStack.push(homePage.homeFrame);
                 break;
         }
     }

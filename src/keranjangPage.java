@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class keranjangPage {
 
     JPanel deliveryPanel, orderPanel,itemPanel, backPanel;
-    JButton backButt;
+    backButton back = new backButton();
     orderCard card;
     static JFrame keranjangFrame;
     public keranjangPage(){
@@ -47,13 +47,25 @@ public class keranjangPage {
         itemPanel.setLayout(new GridLayout(3,0));
 
         backPanel = new JPanel();
-        backButt = new JButton(resized("res/BackButton.png"));
+        back = new backButton();
         backPanel.setLayout(new GridLayout());
         backPanel.setBounds(0,0, 30,30);
-        backPanel.add(backButt);
         deliveryPanel.setComponentZOrder(backPanel,0);
-        keranjangFrame.add(backPanel);
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!backButton.viewStack.isEmpty()){
+                    JFrame prevFrame = backButton.viewStack.peek();
+                    prevFrame.setVisible(true);
+                    keranjangFrame.dispose();
+                    backButton.viewStack.pop();
+                } else {
+                    System.out.println("Stack is empty");
+                }
+            }
+        });
 
+        backPanel.add(back);
         JLabel harga = new JLabel("Subtotal Order:", SwingConstants.CENTER);
         harga.setFont(new Font("helvetica", Font.PLAIN,24));
         harga.setBounds(25,420,350,40);
@@ -82,6 +94,7 @@ public class keranjangPage {
         keranjangFrame.add(harga);
         keranjangFrame.add(pembayaranOption);
         keranjangFrame.add(bayarButton);
+        keranjangFrame.add(backPanel);
         keranjangFrame.add(deliveryPanel);
         keranjangFrame.add(orderPanel);
 
