@@ -46,11 +46,11 @@ public class keranjangPage {
         itemPanel = new JPanel();
         itemPanel.setLayout(new GridLayout(3,0));
 
+        // BackButton
         backPanel = new JPanel();
         back = new backButton();
         backPanel.setLayout(new GridLayout());
         backPanel.setBounds(0,0, 30,30);
-        deliveryPanel.setComponentZOrder(backPanel,0);
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,7 +65,7 @@ public class keranjangPage {
             }
         });
 
-        backPanel.add(back);
+        backPanel.add(back.backPanel);
         JLabel harga = new JLabel("Subtotal Order:", SwingConstants.CENTER);
         harga.setFont(new Font("helvetica", Font.PLAIN,24));
         harga.setBounds(25,420,350,40);
@@ -119,9 +119,5 @@ public class keranjangPage {
         });
     }
 
-    private ImageIcon resized(String photoPath){
-        ImageIcon photo = new ImageIcon(photoPath);
-        Image userPhoto = photo.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-        return new ImageIcon(userPhoto);
-    }
+
 }
