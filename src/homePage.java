@@ -21,9 +21,9 @@ public class homePage {
         homeFrame.setVisible(true);
 
         //================== CARD OBJECT INIT =====================
-        card = new userCard("Yusuf", "10_000", "res/logo_UPJ.png");
-        card2 = new foodCard("Lo Ciento","20_000","res/logo_UPJ.png");
-        card3 = new foodCard("Ragusa","30_000","res/logo_UPJ.png");
+        card = new userCard("Yusuf", "10_000", "res/wireFrameProfileIcon.png");
+        card2 = new foodCard("Lo Ciento","20_000","res/holiawIcon.png");
+        card3 = new foodCard("Ragusa","30_000","res/ragusaIcon.png");
 
         //================== ADDING CARD TO FRAME =====================
         homeFrame.add(card.cardPanel);

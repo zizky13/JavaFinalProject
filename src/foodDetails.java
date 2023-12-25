@@ -8,7 +8,7 @@ public class foodDetails {
     static JFrame restoFrame;
     keranjangPage test;
 
-    String photoPath;
+
 
     JPanel restoPanel, vendorPanel, descPanel, buttonPanel, addToCartPanel,backPanel;
     JLabel judul, foodDescription,whatInside,contentMakanan,sisaStok;
@@ -17,7 +17,7 @@ public class foodDetails {
     Font normalFont = new Font("Helvetica", Font.PLAIN, 12);
     Font superFont = new Font ("Helvetica", Font.BOLD,14);
 
-    public foodDetails() { //can be added parameters for sellers perspective
+    public foodDetails(String photoPath) { //can be added parameters for sellers perspective
 
         //======================= RESTO FRAME INIT ========================
         restoFrame = new JFrame("Food Details");
@@ -27,7 +27,6 @@ public class foodDetails {
         restoFrame.setVisible(true);
 
         //======================= INSERTING IMAGE TO RESTO PANEL ========================
-        String photoPath = "res/logo_UPJ.png";
         filePhoto = new ImageIcon(photoPath);
         Image resizedPhoto = filePhoto.getImage().getScaledInstance(400,144,Image.SCALE_SMOOTH);
         resizedIcon = new ImageIcon(resizedPhoto);

@@ -134,7 +134,7 @@ public class foodCard extends cardProps {
                 loCiento yeet = new loCiento();
                 break;
             case "Ragusa":
-                foodDetails jeez = new foodDetails();
+                foodDetails jeez = new foodDetails("res/gambarEskrim.png");
                 homePage.homeFrame.dispose();
                 break;
         }
