@@ -30,7 +30,7 @@ public class keranjangPage {
 
 
         //delivery panel components #1
-        JLabel userName = new JLabel("Dimas");
+        JLabel userName = new JLabel("Yusuf");
         userName.setBounds(10,5,400,15); // 20
 
         //delivery panel components #2
@@ -71,7 +71,7 @@ public class keranjangPage {
         harga.setBounds(25,420,350,40);
         harga.setBorder(BorderFactory.createLineBorder(new Color(86,158,158), 3));
 
-        String[] pembayaran = {"Gojek", "Grab"};
+        String[] pembayaran = {"Cash", "GoPay", "OVO", "Dana"};
         JComboBox<String> pembayaranOption = new JComboBox<>(pembayaran);
         pembayaranOption.setBounds(25,470,350,40);
         pembayaranOption.setFont(new Font("helvetica", Font.PLAIN,24));
