@@ -32,3 +32,4 @@ bin/
 .idea/libraries/mysql_connector_j_8_2_0.xml
 JavaFinalProject.iml
 *.iml
+.idea/misc.xml
